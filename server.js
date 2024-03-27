@@ -2,9 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 const fs = require("fs")
-const cors = require('cors');
 
-app.use(cors());
+app.use(express.static('public'));
 app.get('/persons', (req, res) => {
 	const jsonFile = fs.readFileSync('./data/data.json')
 	const data = JSON.parse(jsonFile);
